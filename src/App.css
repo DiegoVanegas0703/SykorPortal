@@ -1,0 +1,323 @@
+/* =============================================
+   SYKOR React – App.css
+   Global styles, CSS Variables, Purple Neon Palette
+   ============================================= */
+
+/* --- VARIABLES --- */
+:root {
+  /* Purple Neon Palette */
+  --clr-bg: #11051F;
+  --clr-bg-alt: #160828;
+  --clr-bg-card: #1A0A2E;
+  --clr-surface: #2D134C;
+  --clr-border: #3D1A6A;
+  --clr-border-dim: #251040;
+  --clr-accent: #9E45E6;
+  --clr-accent-dim: #6B2FA0;
+  --clr-accent-glow: rgba(158, 69, 230, 0.18);
+  --clr-silver: #C4C4C4;
+  --clr-silver-hi: #E0E0E0;
+  --clr-white: #FFFFFF;
+  --clr-text: #C4C4C4;
+  --clr-text-muted: #8B7AAA;
+  --clr-text-dim: #4A3666;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Misc */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 4px 32px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 40px rgba(158, 69, 230, 0.2);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1200px;
+}
+
+/* --- RESET --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-accent-dim);
+  border-radius: 3px;
+}
+
+/* --- UTILITIES --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 7rem 0;
+  position: relative;
+}
+
+.dark-section {
+  background: var(--clr-bg-alt);
+}
+
+.text-accent {
+  color: var(--clr-accent);
+}
+
+/* --- SECTION LABEL --- */
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.labelLine {
+  flex: 1;
+  height: 1px;
+  background: var(--clr-border);
+}
+
+.labelMono {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--clr-accent);
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+}
+
+/* --- TYPOGRAPHY --- */
+.sectionTitle {
+  font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--clr-white);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+.sectionTitle.centered {
+  text-align: center;
+}
+
+.sectionSubtitle {
+  color: var(--clr-text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.sectionSubtitle.centered {
+  text-align: center;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+  letter-spacing: 0.04em;
+}
+
+.btnPrimary {
+  background: var(--clr-accent);
+  color: var(--clr-white);
+  border-color: var(--clr-accent);
+}
+
+.btnPrimary:hover {
+  background: transparent;
+  color: var(--clr-accent);
+  box-shadow: 0 0 28px rgba(158, 69, 230, 0.4);
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--clr-silver);
+  border-color: var(--clr-border);
+}
+
+.btnGhost:hover {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+}
+
+.btnLg {
+  padding: 1.1rem 2.6rem;
+  font-size: 1rem;
+}
+
+/* --- BADGE --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(158, 69, 230, 0.08);
+  border: 1px solid rgba(158, 69, 230, 0.25);
+  border-radius: 40px;
+  padding: 0.4rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+.badgeMono {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--clr-accent);
+  letter-spacing: 0.15em;
+}
+
+/* --- PARTICLE --- */
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--clr-accent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatParticle 8s ease-in-out infinite;
+}
+
+/* --- REVEAL --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- KEYFRAMES --- */
+@keyframes pulseDot {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(158, 69, 230, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(158, 69, 230, 0);
+  }
+}
+
+@keyframes floatParticle {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+
+  20% {
+    opacity: 0.5;
+  }
+
+  80% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0);
+  }
+}
+
+@keyframes scanDown {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 100%;
+  }
+}
+
+@keyframes scrollPulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes ellipsisBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}

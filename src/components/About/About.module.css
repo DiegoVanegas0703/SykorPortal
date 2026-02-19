@@ -1,0 +1,96 @@
+.about {
+    background: var(--clr-bg);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.description {
+    font-size: 1.05rem;
+    color: var(--clr-text);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--clr-text-muted);
+}
+
+.featureIcon {
+    color: var(--clr-accent);
+    font-size: 1rem;
+}
+
+.manifestoCard {
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-top: 2px solid var(--clr-accent);
+    border-radius: var(--radius-md);
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+}
+
+.manifestoCard:hover {
+    border-color: var(--clr-accent);
+    box-shadow: var(--shadow-glow);
+}
+
+.decoration {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.decoLine {
+    flex: 1;
+    height: 1px;
+    background: var(--clr-border);
+}
+
+.decoHex {
+    color: var(--clr-accent);
+    font-size: 1.2rem;
+}
+
+.manifestoText {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--clr-white);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.manifestoFooter {
+    border-top: 1px solid var(--clr-border);
+    padding-top: 1rem;
+}
+
+.manifestoBrand {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--clr-accent);
+    letter-spacing: 0.15em;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}

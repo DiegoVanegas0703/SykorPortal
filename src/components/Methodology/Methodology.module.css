@@ -1,0 +1,116 @@
+.methodology {}
+
+.header {
+    margin-bottom: 3rem;
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+}
+
+.card {
+    position: relative;
+    padding: 2.5rem 1.8rem;
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-right: none;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card:last-child {
+    border-right: 1px solid var(--clr-border);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--clr-accent), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card:hover {
+    background: var(--clr-surface);
+    border-color: rgba(158, 69, 230, 0.3);
+}
+
+.num {
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(158, 69, 230, 0.1);
+    line-height: 1;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.card:hover .num {
+    color: rgba(158, 69, 230, 0.25);
+}
+
+.iconWrap {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    background: rgba(158, 69, 230, 0.05);
+    transition: var(--transition);
+}
+
+.card:hover .iconWrap {
+    border-color: var(--clr-accent);
+    background: rgba(158, 69, 230, 0.12);
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+    color: var(--clr-accent);
+}
+
+.title {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--clr-accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.8rem;
+}
+
+.desc {
+    font-size: 0.88rem;
+    color: var(--clr-text-muted);
+    line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+    .timeline {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+        border-right: 1px solid var(--clr-border);
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        grid-template-columns: 1fr;
+    }
+}
