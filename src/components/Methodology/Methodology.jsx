@@ -29,8 +29,25 @@ const STEPS = [
     },
 ]
 
+function StepCard({ step }) {
+    const ref = useReveal()
+
+    return (
+        <article className={`reveal ${styles.card}`} ref={ref}>
+            <div className={styles.num} aria-hidden="true">{step.num}</div>
+            <div className={styles.iconWrap} aria-hidden="true">
+                <svg className={styles.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    {step.icon}
+                </svg>
+            </div>
+            <h3 className={styles.title}>{step.title}</h3>
+            <p className={styles.desc}>{step.desc}</p>
+        </article>
+    )
+}
+
 export default function Methodology() {
-    const refs = STEPS.map(() => useReveal())
+    const headerRef = useReveal()
 
     return (
         <section id="enfoque" className={`section dark-section ${styles.methodology}`}>
@@ -40,7 +57,7 @@ export default function Methodology() {
                     <span className="labelMono">03 / ENFOQUE SYKOR</span>
                     <span className="labelLine" />
                 </div>
-                <div className={`reveal ${styles.header}`} ref={refs[0]}>
+                <div className={`reveal ${styles.header}`} ref={headerRef}>
                     <h2 className="sectionTitle centered">
                         Metodología diseñada para{' '}
                         <span className="text-accent">entornos críticos</span>
@@ -48,17 +65,8 @@ export default function Methodology() {
                     <p className="sectionSubtitle centered">Un proceso estructurado que convierte la complejidad en control sostenible.</p>
                 </div>
                 <div className={styles.timeline}>
-                    {STEPS.map((step, i) => (
-                        <article key={step.num} className={`reveal ${styles.card}`} ref={refs[i]}>
-                            <div className={styles.num} aria-hidden="true">{step.num}</div>
-                            <div className={styles.iconWrap} aria-hidden="true">
-                                <svg className={styles.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                    {step.icon}
-                                </svg>
-                            </div>
-                            <h3 className={styles.title}>{step.title}</h3>
-                            <p className={styles.desc}>{step.desc}</p>
-                        </article>
+                    {STEPS.map((step) => (
+                        <StepCard key={step.num} step={step} />
                     ))}
                 </div>
             </div>

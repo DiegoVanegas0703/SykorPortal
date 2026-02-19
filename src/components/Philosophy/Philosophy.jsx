@@ -6,9 +6,18 @@ const QUOTES = [
     '"No trabajamos para eliminar el riesgo. Trabajamos para anticiparlo y que su organización sepa operar con él."',
 ]
 
-export default function Philosophy() {
-    const refs = QUOTES.map(() => useReveal())
+function QuoteItem({ quote }) {
+    const ref = useReveal()
 
+    return (
+        <figure className={`reveal ${styles.quote}`} ref={ref}>
+            <blockquote><p>{quote}</p></blockquote>
+            <figcaption>— SYKOR</figcaption>
+        </figure>
+    )
+}
+
+export default function Philosophy() {
     return (
         <section id="filosofia" className={`section dark-section ${styles.philosophy}`}>
             <div className="container">
@@ -19,11 +28,8 @@ export default function Philosophy() {
                 </div>
                 <h2 className="sr-only">Filosofía SYKOR</h2>
                 <div className={styles.quotes}>
-                    {QUOTES.map((quote, i) => (
-                        <figure key={i} className={`reveal ${styles.quote}`} ref={refs[i]}>
-                            <blockquote><p>{quote}</p></blockquote>
-                            <figcaption>— SYKOR</figcaption>
-                        </figure>
+                    {QUOTES.map((quote, index) => (
+                        <QuoteItem key={index} quote={quote} />
                     ))}
                 </div>
             </div>

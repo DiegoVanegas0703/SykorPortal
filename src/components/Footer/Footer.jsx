@@ -1,4 +1,6 @@
 import styles from './Footer.module.css'
+// ⬇ Cambia la ruta por el nombre real de tu archivo
+import logo from '../../assets/logo.png'
 
 const NAV_LINKS = [
     { id: 'inicio', label: 'Inicio' },
@@ -23,7 +25,7 @@ export default function Footer() {
             <div className="container">
                 <div className={styles.grid}>
                     <div className={styles.brand}>
-                        <span className={styles.brandText}>SYK<span className={styles.brandAccent}>OR</span></span>
+                        <img src={logo} alt="SYKOR" className={styles.footerLogo} />
                         <p className={styles.tagline}>Diseño inteligente. Seguridad real.</p>
                     </div>
                     <nav className={styles.nav} aria-label="Navegación pie de página">

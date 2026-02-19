@@ -40,8 +40,32 @@ const SOLUTIONS = [
     },
 ]
 
+function SolutionCard({ solution }) {
+    const ref = useReveal()
+
+    return (
+        <article
+            className={`reveal ${styles.card} ${solution.wide ? styles.wide : ''}`}
+            ref={ref}
+            tabIndex={0}
+        >
+            <div className={styles.inner}>
+                <div className={styles.iconWrap} aria-hidden="true">
+                    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        {solution.icon}
+                    </svg>
+                </div>
+                <h3 className={styles.title}>{solution.title}</h3>
+                <p className={styles.desc}>{solution.desc}</p>
+                <span className={styles.tag}>{solution.tag}</span>
+            </div>
+            <div className={styles.glow} aria-hidden="true" />
+        </article>
+    )
+}
+
 export default function Solutions() {
-    const refs = SOLUTIONS.map(() => useReveal())
+    const headerRef = useReveal()
 
     return (
         <section id="soluciones" className={`section ${styles.solutions}`}>
@@ -51,7 +75,7 @@ export default function Solutions() {
                     <span className="labelMono">04 / NUESTRAS SOLUCIONES</span>
                     <span className="labelLine" />
                 </div>
-                <div className={`reveal ${styles.header}`} ref={refs[0]}>
+                <div className={`reveal ${styles.header}`} ref={headerRef}>
                     <h2 className="sectionTitle centered">
                         Pilares de <span className="text-accent">control y resiliencia</span>
                     </h2>
@@ -60,25 +84,8 @@ export default function Solutions() {
                     </p>
                 </div>
                 <div className={styles.grid}>
-                    {SOLUTIONS.map((s, i) => (
-                        <article
-                            key={s.id}
-                            className={`reveal ${styles.card} ${s.wide ? styles.wide : ''}`}
-                            ref={refs[i]}
-                            tabIndex={0}
-                        >
-                            <div className={styles.inner}>
-                                <div className={styles.iconWrap} aria-hidden="true">
-                                    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                        {s.icon}
-                                    </svg>
-                                </div>
-                                <h3 className={styles.title}>{s.title}</h3>
-                                <p className={styles.desc}>{s.desc}</p>
-                                <span className={styles.tag}>{s.tag}</span>
-                            </div>
-                            <div className={styles.glow} aria-hidden="true" />
-                        </article>
+                    {SOLUTIONS.map((solution) => (
+                        <SolutionCard key={solution.id} solution={solution} />
                     ))}
                 </div>
             </div>

@@ -1,0 +1,91 @@
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footerLogo {
+   height: 91px;
+    width: 308px;
+    object-fit: contain;
+    display: block;
+    margin-top: -19px;
+    margin-left: 50px;
+}
+
+.footer {
+  border-top: 1px solid var(--clr-border-dim);
+  padding: 3rem 0 2rem;
+  background: var(--clr-bg-alt);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.brandText {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--clr-white);
+}
+
+.brandAccent {
+  color: var(--clr-accent);
+}
+
+.tagline {
+  margin-top: 0.5rem;
+  color: var(--clr-text-muted);
+}
+
+.nav {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.nav a,
+.contact a {
+  color: var(--clr-silver);
+  transition: var(--transition);
+}
+
+.nav a:hover,
+.contact a:hover {
+  color: var(--clr-accent);
+}
+
+.contact {
+  display: grid;
+  gap: 0.45rem;
+  justify-items: start;
+}
+
+.bottom {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--clr-border-dim);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.copy {
+  color: var(--clr-text-muted);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  color: var(--clr-text-dim);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

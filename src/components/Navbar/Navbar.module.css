@@ -29,6 +29,15 @@
     flex-direction: column;
 }
 
+.logoImg {
+  height: 91px;
+    width: 308px;
+    object-fit: contain;
+    display: block;
+    margin-top: -19px;
+    margin-left: 50px;
+}
+
 .brandText {
     font-size: 1.5rem;
     font-weight: 900;

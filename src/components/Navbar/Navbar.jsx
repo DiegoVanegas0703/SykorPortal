@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
 import styles from './Navbar.module.css'
+// ⬇ Cambia la ruta por el nombre real de tu archivo
+import logo from '../../assets/logo.png'
 
 const NAV_IDS = ['inicio', 'quienes-somos', 'enfoque', 'soluciones', 'filosofia', 'contacto']
 
@@ -32,8 +34,11 @@ export default function Navbar() {
         <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`} role="navigation">
             <div className={styles.container}>
                 <a href="#inicio" className={styles.brand} onClick={handleLink('inicio')}>
-                    <span className={styles.brandText}>SYK<span className={styles.brandAccent}>OR</span></span>
-                    <span className={styles.brandTagline}>Diseño inteligente. Seguridad real.</span>
+                    <img
+                        src={logo}
+                        alt="SYKOR"
+                        className={styles.logoImg}
+                    />
                 </a>
 
                 <button
